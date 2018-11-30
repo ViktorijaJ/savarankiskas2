@@ -1,80 +1,97 @@
 'use strict';
 
-var display = "";
-var display2 = "";
-var ats = "";
-var sk1 = "";
-var sk2 = "";
-var math = ""
 
-function number() {
-    switch () {
-        case "nr1":
+var sk1 = undefined;
+var sk2 = undefined;
+var veiksmas = undefined;
+var atsakymas = undefined;
+var istorija = [];
+
+function number(value) {
+    if (atsakymas != undefined) {
+        atsakymas = undefined;
+        sk1 = undefined;
+        sk2 = undefined;
+        veiksmas = undefined;
+        document.getElementById("atsakymas").innerHTML = "";
+    }
+
+    switch (value) {
+        case "1":
             document.getElementById("atsakymas").innerHTML += "1";
             break;
-        case "nr2":
+        case "2":
             document.getElementById("atsakymas").innerHTML += "2";
             break;
-        case "nr3":
+        case "3":
             document.getElementById("atsakymas").innerHTML += "3";
             break;
-        case "nr4":
+        case "4":
             document.getElementById("atsakymas").innerHTML += "4";
             break;
-        case "nr5":
+        case "5":
             document.getElementById("atsakymas").innerHTML += "5";
             break;
-        case "nr6":
+        case "6":
             document.getElementById("atsakymas").innerHTML += "6";
             break;
-        case "nr7":
+        case "7":
             document.getElementById("atsakymas").innerHTML += "7";
             break;
-        case "nr8":
+        case "8":
             document.getElementById("atsakymas").innerHTML += "8";
             break;
-        case "nr9":
+        case "9":
             document.getElementById("atsakymas").innerHTML += "9";
             break;
-        case "nr0":
+        case "0":
             document.getElementById("atsakymas").innerHTML += "0";
             break;
         case "point":
             document.getElementById("atsakymas").innerHTML += ".";
     }
-
 }
 
-function action() {
 
-    display = Number(document.getElementById("atsakymas").value);
-    sk1 = display;
-    math = document.
+function action(act) {
+    veiksmas = act;
+    if (sk1 == undefined) {
+        sk1 = Number(document.getElementById("atsakymas").innerHTML);
+        document.getElementById("atsakymas").innerHTML = ""
 
-    document.getElementById("atsakymas").innerHTML = "0";
+    }
+
 }
 
 function actionequal() {
+    if (sk1 != undefined && action != undefined) {
+        sk2 = Number(document.getElementById("atsakymas").innerHTML);
+        if (isNaN(sk2)) {
+            sk2 = 0;
+        }
+        switch (veiksmas) {
+            case "div":
+                atsakymas = sk1 / sk2;
+                break;
+            case "time":
+                atsakymas = sk1 * sk2;
+                break;
+            case "min":
+                atsakymas = sk1 - sk2;
+                break;
+            case "plus":
+                atsakymas = sk1 + sk2;
+                break;
 
-    display2 = Number(document.getElementById("atsakymas").value);
-    sk2 = display2;
+        }
 
-    switch (action.id()) {
-        case "div":
-            ats = sk1 / sk2;
-            document.getElementById("atsakymas").innerHTML = ats;
-            break;
-        case "time":
-            ats = sk1 * sk2;
-            document.getElementById("atsakymas").innerHTML = ats;
-            break;
-        case "min":
-            ats = sk1 - sk2;
-            document.getElementById("atsakymas").innerHTML = ats;
-            break;
-        case "plus":
-            ats = sk1 + sk2;
-            document.getElementById("atsakymas").innerHTML = ats;
+        document.getElementById("atsakymas").innerHTML = atsakymas;
+        istorija.push({"sk1": sk1, "sk2": sk2, "action": veiksmas, "atsakymas": atsakymas});
+
+        console.log(istorija);
+        /// draw table here
     }
+
 }
+
 

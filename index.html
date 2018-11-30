@@ -14,6 +14,8 @@
 </head>
 <body>
 
+
+
 <table id="calc">
     <tr>
         <td colspan="4" class="atsakymas">
@@ -22,48 +24,48 @@
     </tr>
     <tr>
         <td>
-            <button onclick="number()" id="nr7">7</button>
+            <button onclick="number('7')">7</button>
         </td>
         <td>
-            <button onclick="number()" id="nr8">8</button>
+            <button onclick="number('8')">8</button>
         </td>
         <td>
-            <button onclick="number()" id="nr9">9</button>
+            <button onclick="number('9')">9</button>
         </td>
-        <td><input type="submit" onclick="action()" id="div" value="÷"></td>
+        <td><input type="submit" onclick="action('div')" value="÷"></td>
     </tr>
     <tr>
         <td>
-            <button onclick="number()" id="nr4">4</button>
+            <button onclick="number('4')">4</button>
         </td>
         <td>
-            <button onclick="number()" id="nr5">5</button>
+            <button onclick="number('5')">5</button>
         </td>
         <td>
-            <button onclick="number()" id="nr6">6</button>
+            <button onclick="number('6')">6</button>
         </td>
-        <td><input type="submit" onclick="action()" id="time" value="×"></td>
+        <td><input type="submit" onclick="action('time')" value="×"></td>
     </tr>
     <tr>
         <td>
-            <button onclick="number()" id="nr1">1</button>
+            <button onclick="number('1')">1</button>
         </td>
         <td>
-            <button onclick="number()" id="nr2">2</button>
+            <button onclick="number('2')">2</button>
         </td>
         <td>
-            <button onclick="number()" id="nr3">3</button>
+            <button onclick="number('3')">3</button>
         </td>
-        <td><input type="submit" onclick="action()" id="min" value="-"></td>
+        <td><input type="submit" onclick="action('min')" value="-"></td>
     </tr>
     <tr>
         <td colspan="2">
-            <button onclick="number()" id="nr0">0</button>
+            <button onclick="number('0')">0</button>
         </td>
         <td>
-            <button onclick="number()" id="point">.
+            <button onclick="number('point')">.</button>
         </td>
-        <td rowspan="2"><input type="submit" onclick="action()" id="plus" value="+"></td>
+        <td rowspan="2"><input type="submit" onclick="action('plus')" value="+"></td>
     </tr>
     <tr>
         <td colspan="3"><input id="equal" type="submit" onclick="actionequal()" value="="></td>
@@ -71,12 +73,13 @@
 </table>
 
 
+
 <table id="answ">
     <tr>
         <th>A</th>
         <th>Veiksmas</th>
         <th>B</th>
-        <th>= <i class="far fa-arrow-up"></i><i class="far fa-arrow-down"></i></th>
+        <th>=</th>
     </tr>
 
     <tr>
@@ -87,88 +90,6 @@
 
     </tr>
 </table>
-
-<script>
-
-    var display = "";
-    var display2 = "";
-    var ats = "";
-    var sk1 = "";
-    var sk2 = "";
-    var math = ""
-
-    function number() {
-        switch () {
-            case "nr1":
-                document.getElementById("atsakymas").innerHTML += "1";
-                break;
-            case "nr2":
-                document.getElementById("atsakymas").innerHTML += "2";
-                break;
-            case "nr3":
-                document.getElementById("atsakymas").innerHTML += "3";
-                break;
-            case "nr4":
-                document.getElementById("atsakymas").innerHTML += "4";
-                break;
-            case "nr5":
-                document.getElementById("atsakymas").innerHTML += "5";
-                break;
-            case "nr6":
-                document.getElementById("atsakymas").innerHTML += "6";
-                break;
-            case "nr7":
-                document.getElementById("atsakymas").innerHTML += "7";
-                break;
-            case "nr8":
-                document.getElementById("atsakymas").innerHTML += "8";
-                break;
-            case "nr9":
-                document.getElementById("atsakymas").innerHTML += "9";
-                break;
-            case "nr0":
-                document.getElementById("atsakymas").innerHTML += "0";
-                break;
-            case "point":
-                document.getElementById("atsakymas").innerHTML += ".";
-        }
-
-    }
-
-    function action() {
-
-        display = Number(document.getElementById("atsakymas").value);
-        sk1 = display;
-        math = document.document.getElementById("atsakymas").innerHTML = "0";
-    }
-
-    function actionequal() {
-
-        display2 = Number(document.getElementById("atsakymas").value);
-        sk2 = display2;
-
-        switch (action.id()) {
-            case "div":
-                ats = sk1 / sk2;
-                document.getElementById("atsakymas").innerHTML = ats;
-                break;
-            case "time":
-                ats = sk1 * sk2;
-                document.getElementById("atsakymas").innerHTML = ats;
-                break;
-            case "min":
-                ats = sk1 - sk2;
-                document.getElementById("atsakymas").innerHTML = ats;
-                break;
-            case "plus":
-                ats = sk1 + sk2;
-                document.getElementById("atsakymas").innerHTML = ats;
-        }
-    }
-
-
-</script>
-
 
 </body>
 </html>

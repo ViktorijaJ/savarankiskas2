@@ -3,13 +3,17 @@
     padding: 0px;
 }
 
+table {
+    border-collapse: collapse;
+}
+
 table, td, th {
     border: 2px solid black;
 }
 
 td, th {
     margin: 0px;
-    paddng: 0px;
+    padding: 0px;
 }
 
 td.atsakymas {
