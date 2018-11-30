@@ -31,9 +31,13 @@ table#answ {
     width: 700px;
     height: auto;
     text-align: center;
-    margin-left: 80px;
+    margin-right: 80px;
     margin-top: 20px;
     float: right;
+}
+
+table#answ th {
+    height: 50px;
 }
 
 div#atsakymas {

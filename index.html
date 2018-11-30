@@ -5,6 +5,10 @@
     <title>Calc</title>
 
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="src/skait.js" language="JavaScript" type="text/javascript"></script>
 
 
 </head>
@@ -72,14 +76,14 @@
         <th>A</th>
         <th>Veiksmas</th>
         <th>B</th>
-        <th>=<i class="far fa-arrow-up"></i><i class="far fa-arrow-down"></i></th>
+        <th>= <i class="far fa-arrow-up"></i><i class="far fa-arrow-down"></i></th>
     </tr>
 
     <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
 
     </tr>
 </table>
@@ -91,9 +95,10 @@
     var ats = "";
     var sk1 = "";
     var sk2 = "";
+    var math = ""
 
     function number() {
-        switch (this.id()) {
+        switch () {
             case "nr1":
                 document.getElementById("atsakymas").innerHTML += "1";
                 break;
@@ -134,8 +139,7 @@
 
         display = Number(document.getElementById("atsakymas").value);
         sk1 = display;
-
-        document.getElementById("atsakymas").innerHTML = "0";
+        math = document.document.getElementById("atsakymas").innerHTML = "0";
     }
 
     function actionequal() {
@@ -143,7 +147,7 @@
         display2 = Number(document.getElementById("atsakymas").value);
         sk2 = display2;
 
-        switch (this.id()) {
+        switch (action.id()) {
             case "div":
                 ats = sk1 / sk2;
                 document.getElementById("atsakymas").innerHTML = ats;
