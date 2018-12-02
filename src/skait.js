@@ -7,6 +7,14 @@ var veiksmas = undefined;
 var atsakymas = undefined;
 var istorija = [];
 
+var Action = function (nr1, nr2, action, answer) {
+    this.nr1 = nr1;
+    this.nr2 = nr2;
+    this.action = action;
+    this.answer = answer;
+
+};
+
 function number(value) {
     if (atsakymas != undefined) {
         atsakymas = undefined;
@@ -48,7 +56,10 @@ function number(value) {
             document.getElementById("atsakymas").innerHTML += "0";
             break;
         case "point":
-            document.getElementById("atsakymas").innerHTML += ".";
+            if (document.getElementById('atsakymas').innerHTML.indexOf(value) == -1) {
+                document.getElementById('atsakymas').innerHTML += ".";
+            }
+            break;
     }
 }
 
@@ -60,7 +71,6 @@ function action(act) {
         document.getElementById("atsakymas").innerHTML = ""
 
     }
-
 }
 
 function actionequal() {
@@ -70,13 +80,13 @@ function actionequal() {
             sk2 = 0;
         }
         switch (veiksmas) {
-            case "div":
+            case "divide":
                 atsakymas = sk1 / sk2;
                 break;
-            case "time":
+            case "multiply":
                 atsakymas = sk1 * sk2;
                 break;
-            case "min":
+            case "minus":
                 atsakymas = sk1 - sk2;
                 break;
             case "plus":
@@ -84,14 +94,43 @@ function actionequal() {
                 break;
 
         }
-
-        document.getElementById("atsakymas").innerHTML = atsakymas;
-        istorija.push({"sk1": sk1, "sk2": sk2, "action": veiksmas, "atsakymas": atsakymas});
-
-        console.log(istorija);
-        /// draw table here
     }
 
+    document.getElementById("atsakymas").innerHTML = atsakymas;
+
+    var veiksmai = new Action(sk1, sk2, veiksmas, atsakymas);
+
+    istorija.push(veiksmai);
+    sk1 = undefined;
+    sk2 = undefined;
+    veiksmas = undefined;
+
+    perpiestiLentele();
 }
 
+function perpiestiLentele() {
+    var template = "<tr><td>{nr1}</td><td>{veiksmas}</td><td>{nr2}</td><td>{answer}</td></tr>";
+    var tableAnsw = document.getElementById('answ');
+    tableAnsw.innerHTML = "<tr class='header'><td>A</td><td>Veiksmas</td><td>B</td><td> = <button  onclick='handleSortUp()' id='sort'>↑</button> <button  onclick='handleSortDown()' id='sort'>↓</button></td></tr>";
+
+    istorija.forEach(item => {
+        var eilute = template.replace('{nr1}', item.nr1).replace('{nr2}', item.nr2).replace('{veiksmas}', item.action).replace('{answer}', item.answer);
+        tableAnsw.innerHTML += eilute;
+    })
+}
+
+function handleSortUp() {
+    istorija = istorija.sort((a, b) => {
+
+        return a.answer - b.answer;
+    });
+    perpiestiLentele();
+}
+
+function handleSortDown() {
+    istorija = istorija.sort((a, b) => {
+        return b.answer - a.answer;
+    });
+    perpiestiLentele();
+}
 

@@ -27,6 +27,7 @@ td.atsakymas {
      font-weight: bold;
     margin-left: 80px;
     margin-top: 20px;
+     border-collapse: collapse;
      float: left;
 }
 
@@ -40,8 +41,21 @@ table#answ {
     float: right;
 }
 
+.header {
+    font-weight: bold;
+    background-color: aqua;
+}
+
+
 table#answ th {
     height: 50px;
+}
+
+button#sort {
+    width: 15px;
+    border: none;
+    background-color: darkcyan;
+    text-align: center;
 }
 
 div#atsakymas {
